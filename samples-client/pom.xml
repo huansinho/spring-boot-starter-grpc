@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.3.RELEASE</version>
+        <version>1.3.7.RELEASE</version>
     </parent>
 
     <groupId>com.anoyi.grpc</groupId>
@@ -49,6 +49,7 @@
     </dependencies>
 
     <build>
+        <finalName>samples-client</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

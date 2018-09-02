@@ -11,12 +11,14 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.test.SpringApplicationContextLoader;
 import org.springframework.cglib.proxy.InvocationHandler;
 import org.springframework.cglib.proxy.Proxy;
 import org.springframework.context.ResourceLoaderAware;
@@ -40,9 +42,15 @@ public class GrpcAutoConfiguration {
 
     private static final Logger log = Logger.getLogger(GrpcAutoConfiguration.class.getName());
 
-    private final AbstractApplicationContext applicationContext;
+    @Autowired
+    private AbstractApplicationContext applicationContext;
 
-    private final GrpcProperties grpcProperties;
+    @Autowired
+    private GrpcProperties grpcProperties;
+
+    public GrpcAutoConfiguration() {
+
+    }
 
     public GrpcAutoConfiguration(AbstractApplicationContext applicationContext, GrpcProperties grpcProperties) {
         this.applicationContext = applicationContext;
